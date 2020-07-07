@@ -1,0 +1,27 @@
+@mixin sidebar-theme($vars) {
+  app-sidebar {
+    .sidebar {
+      background-color: map-get($vars, foreground);
+      border-right: 1px solid #e6e6e6;
+    }
+  
+    .item-icon {
+      color: map-get($vars, info);
+    }
+
+    .list-item {
+      color: map-get($vars, info);
+    }
+
+    a {
+      color: map-get($vars, info);
+    }
+
+    .active {
+      color: map-get($vars, text);
+      .item-icon {
+        color: map-get($vars, main);
+      }
+    }
+  }
+}

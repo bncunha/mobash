@@ -1,0 +1,25 @@
+.sidebar {
+  height: 100vh;
+  padding: 1rem 1.5rem;
+}
+
+.menu-list {
+  padding: 0;
+  list-style: none;
+
+}
+
+.list-item {
+  font-size: 1.125rem;
+  font-weight: 400;
+  margin-bottom: 1.5rem;
+
+  .active {
+    font-weight: 700;
+  }
+
+  .item-name {
+    display: inline-block;
+    margin-left: 1.5rem;
+  }
+}

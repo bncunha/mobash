@@ -1,0 +1,10 @@
+<div class="sidebar lightTheme">
+  <ul class="menu-list">
+    <li *ngFor="let itemMenu of itensMenu" class="list-item">
+      <a [routerLink]="itemMenu.link" routerLinkActive="active">
+        <i class="item-icon" [ngClass]="itemMenu.icon"></i>
+        <p class="item-name"> {{ itemMenu.name }}</p>
+      </a>
+    </li>
+  </ul>
+</div>

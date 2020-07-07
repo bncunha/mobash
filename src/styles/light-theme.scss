@@ -1,0 +1,25 @@
+@import './light-theme-vars.scss';
+@import './../app/templates/sidebar/sidebar.component.theme.scss';
+
+@mixin set-light-theme() {
+  $theme: $light-theme-vars;
+  $background: map-get($theme, background);
+  $foreground: map-get($theme, foreground);
+  $text: map-get($theme, text);
+  $main: map-get($theme, main);
+  $info: map-get($theme, info);
+  $warn: map-get($theme, warn);
+
+  body {
+    background-color: $background;
+    color: $text;
+    -webkit-text-size-adjust: none;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .background-color {
+    background-color: $background;
+  }
+
+  @include sidebar-theme($theme);
+}
