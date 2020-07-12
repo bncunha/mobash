@@ -1,5 +1,7 @@
 @import './light-theme-vars.scss';
 @import './../app/templates/sidebar/sidebar.component.theme.scss';
+@import './../app/shared/card/card.component.theme.scss';
+@import './../app/shared/tabela/tabela.component.theme.scss';
 
 @mixin set-light-theme() {
   $theme: $light-theme-vars;
@@ -21,5 +23,13 @@
     background-color: $background;
   }
 
+  button.main {
+    background-color: $main;
+    color: #fff;
+    font-weight: 600;
+  }
+
   @include sidebar-theme($theme);
+  @include card-theme($theme);
+  @include tabela-theme($theme);
 }

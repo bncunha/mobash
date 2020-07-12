@@ -1,0 +1,7 @@
+@mixin card-theme($vars) {
+  app-card {
+    .card-content {
+      background-color: map-get($vars, foreground);
+    }
+  }
+}

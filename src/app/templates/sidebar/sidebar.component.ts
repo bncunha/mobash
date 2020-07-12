@@ -20,6 +20,10 @@ export class SidebarComponent implements OnInit {
     name: 'Lalalaa',
     link: '/lalalaa',
     icon: 'fas fa-chart-bar',
+  }, {
+    name: 'Características do produto',
+    link: '/propriedades-sku',
+    icon: 'fas fa-puzzle-piece'
   }];
 
   constructor() { }

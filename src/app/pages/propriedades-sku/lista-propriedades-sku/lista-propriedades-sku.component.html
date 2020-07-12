@@ -1,0 +1,17 @@
+<app-card>
+  <app-add-button class="mb-3"></app-add-button>
+  <app-tabela>
+    <thead>
+      <th> # </th>
+      <th> Nome </th>
+      <th> Código </th>
+    </thead>
+    <tbody>
+      <tr *ngFor="let item of propriedadesSku">
+        <td> {{ item.idPropriedadeSKU }} </td>
+        <td> {{ item.nomePropriedade }} </td>
+        <td> {{ item.codigoPropriedade }} </td>
+      </tr>
+    </tbody>
+  </app-tabela>
+</app-card>
