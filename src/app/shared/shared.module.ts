@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { CardComponent } from './card/card.component';
 import { TabelaComponent } from './tabela/tabela.component';
 import { AddButtonComponent } from './add-button/add-button.component';
+import { RouterModule } from '@angular/router';
 
 
 
@@ -13,7 +14,8 @@ import { AddButtonComponent } from './add-button/add-button.component';
     AddButtonComponent
   ],
   imports: [
-    CommonModule
+    CommonModule,
+    RouterModule
   ],
   exports: [
     CardComponent,

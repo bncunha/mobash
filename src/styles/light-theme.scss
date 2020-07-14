@@ -23,10 +23,16 @@
     background-color: $background;
   }
 
+  a.main,
   button.main {
     background-color: $main;
     color: #fff;
     font-weight: 600;
+
+    &:hover {
+      color: #fff;
+      background-color: lighten($main, 10%);
+    }
   }
 
   @include sidebar-theme($theme);

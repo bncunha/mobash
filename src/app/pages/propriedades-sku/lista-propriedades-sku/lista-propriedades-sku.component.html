@@ -1,6 +1,6 @@
 <app-card>
-  <app-add-button class="mb-3"></app-add-button>
-  <app-tabela>
+  <app-add-button link="/propriedades-sku/add" class="mb-3"></app-add-button>
+  <app-tabela [estaVazio]="!propriedadesSku?.length">
     <thead>
       <th> # </th>
       <th> Nome </th>

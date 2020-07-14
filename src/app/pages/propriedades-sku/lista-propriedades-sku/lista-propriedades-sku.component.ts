@@ -19,7 +19,7 @@ export class ListaPropriedadesSkuComponent implements OnInit {
   }
 
   buscarPropriedadesSku() {
-    this.propriedadeSkuService.getProdutos().subscribe(r => {
+    this.propriedadeSkuService.getPropriedades().subscribe(r => {
       console.log(r);
       this.propriedadesSku = r.itens;
       this.page = r.page;

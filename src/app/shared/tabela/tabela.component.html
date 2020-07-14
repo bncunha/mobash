@@ -1,3 +1,6 @@
 <table class="tabela table table-hover">
   <ng-content></ng-content>
 </table>
+<ng-container *ngIf="estaVazio">
+  <p class="text-center"> Nada encontrado! </p>
+</ng-container>
