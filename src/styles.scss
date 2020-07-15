@@ -22,3 +22,12 @@ form label {
 .form-control {
   height: 3rem;
 }
+
+:not(form).ng-invalid.ng-touched {
+  color: red;
+  border-color: red;
+}
+
+:not(form).ng-valid.ng-touched {
+  border-color: green;
+}

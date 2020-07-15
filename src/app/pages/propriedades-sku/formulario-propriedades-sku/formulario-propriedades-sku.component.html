@@ -2,11 +2,11 @@
   <form class="form-row" [formGroup]="form" (submit)="onSubmit()">
     <div class="form-group col-md-6">
       <label> Característica do produto* </label>
-      <input formControlName="nomePropriedade" class="form-control" type="text" placeholder="Ex: Tamanho, Cor, Voltagem..."/>
+      <input appFormValidator formControlName="nomePropriedade" class="form-control" type="text" placeholder="Ex: Tamanho, Cor, Voltagem..."/>
     </div>
     <div class="form-group col-md-6">
       <label> Código </label>
-      <input formControlName="codigoPropriedade" class="form-control" type="text" placeholder="Ex.: TAM, CO, VT..."/>
+      <input appFormValidator formControlName="codigoPropriedade" class="form-control" type="text" placeholder="Ex.: TAM, CO, VT..."/>
     </div>
     <div class="form-group col-12 text-right">
       <app-add-button></app-add-button>

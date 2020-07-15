@@ -4,6 +4,7 @@ import { CardComponent } from './card/card.component';
 import { TabelaComponent } from './tabela/tabela.component';
 import { AddButtonComponent } from './add-button/add-button.component';
 import { RouterModule } from '@angular/router';
+import { FormValidatorModule } from './form-validator/form-validator.module';
 
 
 
@@ -20,7 +21,8 @@ import { RouterModule } from '@angular/router';
   exports: [
     CardComponent,
     TabelaComponent,
-    AddButtonComponent
+    AddButtonComponent,
+    FormValidatorModule
   ]
 })
 export class SharedModule { }
