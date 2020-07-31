@@ -2,8 +2,10 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { environment } from 'src/environments/environment';
 import { pipe, Observable } from 'rxjs';
-import { finalize } from 'rxjs/operators';
+import { finalize, tap, catchError } from 'rxjs/operators';
 import { PropriedadeSku } from '../models/PropriedadeSku';
+import { AlertPopupService } from '../shared/alert-popup/alert-popup.service';
+import { ApiService } from './api.service';
 
 @Injectable({
   providedIn: 'root'
@@ -12,7 +14,10 @@ export class PropriedadeSkuService {
   loadingGetPropriedades = false;
   loadingSalvarProriedade = false;
 
-  constructor(private http: HttpClient) { }
+  constructor(
+    private http: HttpClient,
+    private api: ApiService
+  ) { }
 
   getPropriedades(): Observable<any> {
     this.loadingGetPropriedades = true;
@@ -23,8 +28,6 @@ export class PropriedadeSkuService {
 
   salvarPropriedade(model: PropriedadeSku): Observable<any> {
     this.loadingSalvarProriedade = true;
-    return this.http.post(`${environment.backend}/propriedades-sku`, model).pipe(
-      finalize(() => this.loadingSalvarProriedade = false)
-    );
+    return this.api.salvar('propriedades-sku', model, () => this.loadingSalvarProriedade = false);
   }
 }

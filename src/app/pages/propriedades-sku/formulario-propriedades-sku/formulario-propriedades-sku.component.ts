@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup } from '@angular/forms';
 import { PropriedadeSku } from 'src/app/models/PropriedadeSku';
 import { PropriedadeSkuService } from 'src/app/services/propriedade-sku.service';
+import { Location } from '@angular/common';
 
 @Component({
   selector: 'app-formulario-propriedades-sku',
@@ -13,7 +14,8 @@ export class FormularioPropriedadesSkuComponent implements OnInit {
   model: PropriedadeSku = new PropriedadeSku();
 
   constructor(
-    private propriedadeSkuService: PropriedadeSkuService
+    private propriedadeSkuService: PropriedadeSkuService,
+    private location: Location
   ) { }
 
   ngOnInit(): void {
@@ -24,13 +26,17 @@ export class FormularioPropriedadesSkuComponent implements OnInit {
     if (this.form.valid) {
       const propriedaeSku = this.model.valoresFormulario();
       this.propriedadeSkuService.salvarPropriedade(propriedaeSku).subscribe(response => {
-        console.log(response);
+        this.location.back();
       }, error => {
         console.log(error);
       });
     } else {
-      console.log(this.form);
+      this.model.atualizarFormulario();
     }
+  }
+
+  get loadingSalvar() {
+    return this.propriedadeSkuService.loadingSalvarProriedade;
   }
 
 }

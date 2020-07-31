@@ -13,4 +13,13 @@ export abstract class PersistenceModel<Model> {
       return null;
     }
   }
+
+  atualizarFormulario() {
+    if (this.form) {
+      this.form.markAllAsTouched();
+      this.form.updateValueAndValidity();
+    }
+    console.log(this.form);
+  }
+
 }

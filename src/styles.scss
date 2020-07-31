@@ -13,6 +13,11 @@ button {
   border: none;
   padding: 0.7rem 2rem;
   border-radius: 5px;
+
+}
+
+button:disabled {
+  opacity: 0.8;
 }
 
 form label {

@@ -5,24 +5,29 @@ import { TabelaComponent } from './tabela/tabela.component';
 import { AddButtonComponent } from './add-button/add-button.component';
 import { RouterModule } from '@angular/router';
 import { FormValidatorModule } from './form-validator/form-validator.module';
-
+import { AlertPopupComponent } from './alert-popup/alert-popup.component';
+import { AlertPopupModule } from './alert-popup/alert-popup.module';
+import { LoadingComponent } from './loading/loading.component';
 
 
 @NgModule({
   declarations: [
     CardComponent,
     TabelaComponent,
-    AddButtonComponent
+    AddButtonComponent,
+    LoadingComponent,
   ],
   imports: [
     CommonModule,
-    RouterModule
+    RouterModule,
   ],
   exports: [
     CardComponent,
     TabelaComponent,
     AddButtonComponent,
-    FormValidatorModule
+    FormValidatorModule,
+    AlertPopupModule,
+    LoadingComponent
   ]
 })
 export class SharedModule { }

@@ -8,6 +8,7 @@ import { Component, OnInit, Input } from '@angular/core';
 export class AddButtonComponent implements OnInit {
   @Input() type: 'main' | 'warn' | 'danger' = 'main';
   @Input() link: string;
+  @Input() loading: boolean;
 
   constructor() { }
 

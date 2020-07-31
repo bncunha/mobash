@@ -1,0 +1,16 @@
+<swal
+  #sucessoAlert
+  icon="success"
+  title="Sucesso!"
+  [showConfirmButton]="false"
+  timer="1800"
+  >
+</swal>
+
+<swal
+  #erroAlert
+  icon="error"
+  title="Oops..."
+  [text]="text ? text : 'Algo deu errado! Por favor tente novamente.'"
+  >
+</swal>

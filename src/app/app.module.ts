@@ -5,6 +5,8 @@ import { AppComponent } from './app.component';
 import { HttpClientModule } from '@angular/common/http';
 import { SidebarModule } from './templates/sidebar/sidebar.module';
 import { AppRoutingModule } from './app-routing.module';
+import { AlertPopupModule } from './shared/alert-popup/alert-popup.module';
+import { SweetAlert2Module } from '@sweetalert2/ngx-sweetalert2';
 
 @NgModule({
   declarations: [
@@ -14,7 +16,9 @@ import { AppRoutingModule } from './app-routing.module';
     BrowserModule,
     HttpClientModule,
     SidebarModule,
-    AppRoutingModule
+    AppRoutingModule,
+    AlertPopupModule,
+    SweetAlert2Module.forRoot()
   ],
   providers: [],
   bootstrap: [AppComponent]

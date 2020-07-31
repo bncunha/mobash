@@ -1,6 +1,5 @@
 import { Directive, ElementRef, OnInit, HostListener, DoCheck, Renderer2 } from '@angular/core';
 import { NgControl, FormControl, AbstractControl } from '@angular/forms';
-import { timeStamp } from 'console';
 import { mensagensValidacao } from './mensagens-validacao';
 
 @Directive({
