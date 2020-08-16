@@ -1,4 +1,13 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, ContentChild, ViewChild } from '@angular/core';
+import { FormGroup, AbstractControl } from '@angular/forms';
+
+export type TableCol = {
+  name: string;
+  bindValue: string;
+  type?: string;
+  edit?: boolean;
+  control?: AbstractControl;
+};
 
 @Component({
   selector: 'app-tabela',
@@ -6,11 +15,22 @@ import { Component, OnInit, Input } from '@angular/core';
   styleUrls: ['./tabela.component.scss']
 })
 export class TabelaComponent implements OnInit {
-  @Input() estaVazio: boolean;
+  @Input() cols: TableCol[];
+  @Input() data: any[];
+  @Input() addForm: FormGroup;
 
+  novoItem = {};
   constructor() { }
 
   ngOnInit(): void {
+  }
+
+  get estaVazio() {
+    return this.data && !this.data.length;
+  }
+
+  getColValue(item, col) {
+    return item[col.bindValue];
   }
 
 }

@@ -5,9 +5,10 @@ import { TabelaComponent } from './tabela/tabela.component';
 import { AddButtonComponent } from './add-button/add-button.component';
 import { RouterModule } from '@angular/router';
 import { FormValidatorModule } from './form-validator/form-validator.module';
-import { AlertPopupComponent } from './alert-popup/alert-popup.component';
 import { AlertPopupModule } from './alert-popup/alert-popup.module';
 import { LoadingComponent } from './loading/loading.component';
+import { ColunaEdicaoComponent } from './tabela/coluna-edicao/coluna-edicao.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -16,10 +17,14 @@ import { LoadingComponent } from './loading/loading.component';
     TabelaComponent,
     AddButtonComponent,
     LoadingComponent,
+    ColunaEdicaoComponent,
   ],
   imports: [
     CommonModule,
     RouterModule,
+    FormsModule,
+    ReactiveFormsModule,
+    FormValidatorModule
   ],
   exports: [
     CardComponent,

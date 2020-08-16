@@ -13,7 +13,10 @@ button {
   border: none;
   padding: 0.7rem 2rem;
   border-radius: 5px;
-
+  
+  &.small {
+    padding: 0.3rem 0.8rem;
+  }
 }
 
 button:disabled {
@@ -29,10 +32,12 @@ form label {
 }
 
 :not(form).ng-invalid.ng-touched {
+  border: 1px solid;
   color: red;
   border-color: red;
 }
 
 :not(form).ng-valid.ng-touched {
+  border: 1px solid;
   border-color: green;
 }

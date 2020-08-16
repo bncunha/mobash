@@ -1,6 +1,36 @@
-<table class="tabela table table-hover">
-  <ng-content></ng-content>
+<div class="text-right mb-3">
+  <button> <i class="fas fa-plus"></i> </button>
+</div>
+
+<table class="tabela table table-hover" #contentTable>
+  <thead>
+    <th *ngFor="let col of cols"> {{ col.name }} </th>
+  </thead>
+  <tbody>
+
+    <tr class="linha-edicao">
+      <td *ngFor="let col of cols; let i = index">
+        <app-coluna-edicao *ngIf="col.control"
+          [control]="col.control"
+          [name]="col.bindValue"
+          [type]="col.type || 'string'">
+        </app-coluna-edicao>
+
+        <div *ngIf="i == cols?.length-1" class="mt-3 text-right">
+          <button class="small bg-white mr-2"> Cancelar </button>
+          <app-add-button [small]="true"></app-add-button>
+        </div>
+      </td>
+    </tr>
+
+
+    <tr *ngFor="let item of data">
+      <td *ngFor="let col of cols"> {{ getColValue(item, col) }} </td>
+    </tr>
+
+  </tbody>
 </table>
+
 <ng-container *ngIf="estaVazio">
   <p class="text-center"> Nada encontrado! </p>
 </ng-container>

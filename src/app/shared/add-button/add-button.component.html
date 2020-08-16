@@ -1,8 +1,8 @@
-<button *ngIf="!link" [ngClass]="type" [disabled]="loading">
+<button *ngIf="!link" [ngClass]="type" [class.small]="small" [disabled]="loading">
   <ng-container *ngTemplateOutlet="conteudo"></ng-container>  
 </button>
 
-<a *ngIf="link" class="btn" [ngClass]="type" [routerLink]="link">
+<a *ngIf="link" class="btn" [ngClass]="type" [class.small]="small" [routerLink]="link">
   <ng-container *ngTemplateOutlet="conteudo"></ng-container>  
 </a>
 
