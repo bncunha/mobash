@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter, ViewChild, ElementRef } from '@angular/core';
 import { FormGroup, FormControl } from '@angular/forms';
 
 @Component({
@@ -7,6 +7,7 @@ import { FormGroup, FormControl } from '@angular/forms';
   styleUrls: ['./coluna-edicao.component.scss']
 })
 export class ColunaEdicaoComponent implements OnInit {
+  @ViewChild('inputText') inputText: ElementRef;
   @Output() itemChange = new EventEmitter();
   @Input() item: any;
   @Input() name: string;

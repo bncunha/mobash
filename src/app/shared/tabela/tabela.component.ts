@@ -1,5 +1,6 @@
-import { Component, OnInit, Input, ContentChild, ViewChild, EventEmitter, Output } from '@angular/core';
+import { Component, OnInit, Input, ContentChild, ViewChild, EventEmitter, Output, ViewChildren, QueryList } from '@angular/core';
 import { FormGroup, AbstractControl } from '@angular/forms';
+import { ColunaEdicaoComponent } from './coluna-edicao/coluna-edicao.component';
 
 export type TableCol = {
   name: string;
@@ -15,6 +16,7 @@ export type TableCol = {
   styleUrls: ['./tabela.component.scss']
 })
 export class TabelaComponent implements OnInit {
+  @ViewChildren(ColunaEdicaoComponent) colunasEmEdicao: QueryList<ColunaEdicaoComponent>;
   @Output() adicionar = new EventEmitter();
   @Input() cols: TableCol[];
   @Input() data: any[];
@@ -37,6 +39,11 @@ export class TabelaComponent implements OnInit {
 
   botaoAddClicado(): void {
     this.showAddRow = true;
+    if (this.colunasEmEdicao) {
+      setTimeout(() => {
+        this.colunasEmEdicao.toArray()[0].inputText.nativeElement.focus();
+      });
+    }
   }
 
   cancelar(): void {
