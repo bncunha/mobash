@@ -2,7 +2,8 @@
   <app-tabela 
     [cols]="cols" 
     [data]="propriedadesSku"
-    [add]="true"
+    [canEdit]="true"
+    (editar)="editar()"
     (adicionar)="adicionar()">
   </app-tabela>
 </app-card>

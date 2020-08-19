@@ -55,7 +55,15 @@ export class ListaPropriedadesSkuComponent implements OnInit {
         this.tabela.cancelar();
       });
     } else {
-      this.alert.showError('Formulário inválido');
+      this.alert.showError('Formulário inválido!');
+    }
+  }
+
+  editar() {
+    if (this.addForm.valid) {
+      console.log('a');
+    } else {
+      this.alert.showError('Formulário inválido!');
     }
   }
 

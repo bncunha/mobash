@@ -1,15 +1,15 @@
-<button *ngIf="!link" [ngClass]="type" [class.small]="small" [disabled]="loading">
+<button *ngIf="!link" [ngClass]="getCor()" [class.small]="small" [disabled]="loading">
   <ng-container *ngTemplateOutlet="conteudo"></ng-container>  
 </button>
 
-<a *ngIf="link" class="btn" [ngClass]="type" [class.small]="small" [routerLink]="link">
+<a *ngIf="link" class="btn" [ngClass]="getCor()" [class.small]="small" [routerLink]="link">
   <ng-container *ngTemplateOutlet="conteudo"></ng-container>  
 </a>
 
 <ng-template #conteudo>
   <app-loading *ngIf="loading" class="d-inline-block mr-2"></app-loading>
-  <span> {{ loading ? 'Salvando...' : 'Adcionar'}} </span>
+  <span> {{ loading ? 'Salvando...' : getTexto()}} </span>
   <ng-container *ngIf="!loading">
-    <i class="fas fa-plus ml-2"></i>
+    <i class="fas ml-2" [ngClass]="getIcone()"></i>
   </ng-container>  
 </ng-template>

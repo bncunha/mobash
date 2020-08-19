@@ -9,6 +9,7 @@
   $foreground: map-get($theme, foreground);
   $text: map-get($theme, text);
   $main: map-get($theme, main);
+  $second: map-get($theme, second);
   $info: map-get($theme, info);
   $warn: map-get($theme, warn);
 
@@ -32,6 +33,18 @@
     &:hover {
       color: #fff;
       background-color: lighten($main, 10%);
+    }
+  }
+
+  a.second,
+  button.second {
+    background-color: $second;
+    color: #fff;
+    font-weight: 600;
+
+    &:hover {
+      color: #fff;
+      background-color: lighten($second, 10%);
     }
   }
 

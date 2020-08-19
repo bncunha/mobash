@@ -18,10 +18,12 @@ export type TableCol = {
 export class TabelaComponent implements OnInit {
   @ViewChildren(ColunaEdicaoComponent) colunasEmEdicao: QueryList<ColunaEdicaoComponent>;
   @Output() adicionar = new EventEmitter();
+  @Output() editar = new EventEmitter();
   @Input() cols: TableCol[];
   @Input() data: any[];
-  @Input() add = false;
+  @Input() canEdit = false;
 
+  indiceEdicao: number = null;
   showAddRow = false;
 
   constructor() { }
@@ -48,13 +50,26 @@ export class TabelaComponent implements OnInit {
 
   cancelar(): void {
     this.showAddRow = false;
+    this.indiceEdicao = null;
     if (this.cols) {
       this.cols.forEach(colum => colum.control && colum.control.reset());
     }
   }
 
-  adicionarClicado(): void {
-    this.adicionar.emit();
+  salvar(): void {
+    this.showAddRow ? this.adicionar.emit() : this.editar.emit();
   }
 
+  editarLinha(item: any, index: number): void {
+    this.indiceEdicao = index;
+    this.cols.forEach(col => {
+      if (col.control) {
+        col.control.patchValue(this.getColValue(item, col));
+      }
+    });
+  }
+
+  isEditandoLinha(indiceLinha) {
+    return this.indiceEdicao !== null && this.indiceEdicao === indiceLinha;
+  }
 }
