@@ -19,6 +19,7 @@ export class TabelaComponent implements OnInit {
   @ViewChildren(ColunaEdicaoComponent) colunasEmEdicao: QueryList<ColunaEdicaoComponent>;
   @Output() adicionar = new EventEmitter();
   @Output() editar = new EventEmitter();
+  @Output() deletar = new EventEmitter();
   @Input() cols: TableCol[];
   @Input() data: any[];
   @Input() canEdit = false;
@@ -58,6 +59,10 @@ export class TabelaComponent implements OnInit {
 
   salvar(itemOrigignal): void {
     this.showAddRow ? this.adicionar.emit() : this.editar.emit(itemOrigignal);
+  }
+
+  deletarClick(itemOriginal: any): void {
+    this.deletar.emit(itemOriginal);
   }
 
   editarLinha(item: any, index: number): void {

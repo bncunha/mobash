@@ -40,11 +40,17 @@
   button.second {
     background-color: $second;
     color: #fff;
-    font-weight: 600;
-
     &:hover {
-      color: #fff;
       background-color: lighten($second, 10%);
+    }
+  }
+
+  a.warn,
+  button.warn {
+    background-color: $warn;
+    color: #fff;
+    &:hover {
+      background-color: lighten($warn, 10%);
     }
   }
 

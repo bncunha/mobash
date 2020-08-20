@@ -10,6 +10,6 @@
   <app-loading *ngIf="loading" class="d-inline-block mr-2"></app-loading>
   <span> {{ loading ? 'Salvando...' : getTexto()}} </span>
   <ng-container *ngIf="!loading">
-    <i class="fas ml-2" [ngClass]="getIcone()"></i>
+    <i class="fas" [class.ml-2]="getTexto()" [ngClass]="getIcone()"></i>
   </ng-container>  
 </ng-template>

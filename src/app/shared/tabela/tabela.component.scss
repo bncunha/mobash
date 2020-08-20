@@ -5,3 +5,25 @@
 .linha-edicao {
   background-color: rgba(0,0,0,.075);
 }
+
+td {
+  position: relative;
+}
+
+.btn-delete {
+  position: absolute;
+  right: 0;
+  top: calc(50% - 15px);
+  opacity: 0;
+  transition: all 0.1s ease;
+}
+
+tr:hover {
+  .btn-delete {
+    opacity: 0.5;
+  }
+
+  .btn-delete:hover {
+    opacity: 1;
+  }
+}
