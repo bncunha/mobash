@@ -47,21 +47,15 @@ export class ListaPropriedadesSkuComponent implements OnInit {
     });
   }
 
-  adicionar() {
+  salvar(idPropriedadeSKU?: number) {
+    const request = idPropriedadeSKU ? this.propriedadeSkuService.editarPropriedade : this.propriedadeSkuService.salvarPropriedade;
     if (this.addForm.valid) {
       const propriedadeSku = new PropriedadeSku().valoresFormulario(this.addForm);
-      this.propriedadeSkuService.salvarPropriedade(propriedadeSku).subscribe(r => {
+      propriedadeSku.idPropriedadeSku = idPropriedadeSKU;
+      request.bind(this.propriedadeSkuService)(propriedadeSku).subscribe(r => {
         this.buscarPropriedadesSku();
         this.tabela.cancelar();
       });
-    } else {
-      this.alert.showError('Formulário inválido!');
-    }
-  }
-
-  editar() {
-    if (this.addForm.valid) {
-      console.log('a');
     } else {
       this.alert.showError('Formulário inválido!');
     }

@@ -56,8 +56,8 @@ export class TabelaComponent implements OnInit {
     }
   }
 
-  salvar(): void {
-    this.showAddRow ? this.adicionar.emit() : this.editar.emit();
+  salvar(itemOrigignal): void {
+    this.showAddRow ? this.adicionar.emit() : this.editar.emit(itemOrigignal);
   }
 
   editarLinha(item: any, index: number): void {

@@ -4,6 +4,7 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 export class PropriedadeSku extends PersistenceModel<PropriedadeSku> {
   private nomePropriedade: string;
   private codigoPropriedade: string;
+  idPropriedadeSku: number;
 
   constructor() {
     super();

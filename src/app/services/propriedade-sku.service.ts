@@ -13,6 +13,7 @@ import { ApiService } from './api.service';
 export class PropriedadeSkuService {
   loadingGetPropriedades = false;
   loadingSalvarProriedade = false;
+  loadingEditarProriedade = false;
 
   constructor(
     private http: HttpClient,
@@ -29,5 +30,10 @@ export class PropriedadeSkuService {
   salvarPropriedade(model: PropriedadeSku): Observable<any> {
     this.loadingSalvarProriedade = true;
     return this.api.salvar('propriedades-sku', model, () => this.loadingSalvarProriedade = false);
+  }
+
+  editarPropriedade(model: PropriedadeSku): Observable<any> {
+    this.loadingEditarProriedade = true;
+    return this.api.editar('propriedades-sku/' + model.idPropriedadeSku , model, () => this.loadingEditarProriedade = false);
   }
 }

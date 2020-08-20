@@ -22,4 +22,12 @@ export class ApiService {
       finalize(() => onFinalize && onFinalize())
     );
   }
+
+  editar(url: string, data: any, onFinalize?) {
+    return this.http.put(`${environment.backend}/${url}`, data).pipe(
+      tap(() => this.alert.showSucesso()),
+      catchError(err => { this.alert.showError(err.error && err.error.message); return throwError(err); }),
+      finalize(() => onFinalize && onFinalize())
+    );
+  }
 }

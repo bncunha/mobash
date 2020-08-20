@@ -3,7 +3,7 @@
     [cols]="cols" 
     [data]="propriedadesSku"
     [canEdit]="true"
-    (editar)="editar()"
-    (adicionar)="adicionar()">
+    (editar)="salvar($event?.idPropriedadeSKU)"
+    (adicionar)="salvar()">
   </app-tabela>
 </app-card>
