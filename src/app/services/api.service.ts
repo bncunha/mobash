@@ -30,4 +30,15 @@ export class ApiService {
       finalize(() => onFinalize && onFinalize())
     );
   }
+
+  deletar(url: string, onSucces?, onError?, onFinalize?) {
+    const request = this.http.delete(`${environment.backend}/${url}`).pipe(
+      tap(() => this.alert.showSucesso()),
+      catchError(err => { this.alert.showError(err.error && err.error.message); return throwError(err); }),
+      finalize(() => onFinalize && onFinalize())
+    );
+    this.alert.showPergunta('Deseja deletar?', () => {
+      request.subscribe((r) => onSucces && onSucces(r), (err) => onError && onError(err));
+    });
+  }
 }

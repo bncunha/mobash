@@ -7,6 +7,7 @@ import { Subject } from 'rxjs';
 export class AlertPopupService {
   notificarSucesso = new Subject();
   notificarErro = new Subject();
+  notificarPergunta = new Subject();
 
   constructor() { }
 
@@ -16,5 +17,9 @@ export class AlertPopupService {
 
   showError(message: string) {
     this.notificarErro.next(message);
+  }
+
+  showPergunta(msg: string, confirm?, cancel?) {
+    this.notificarPergunta.next({msg, confirm, cancel});
   }
 }

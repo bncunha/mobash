@@ -14,3 +14,16 @@
   [text]="text ? text : 'Algo deu errado! Por favor tente novamente.'"
   >
 </swal>
+
+<swal
+  #perguntaAlert
+  icon="warning"
+  title="Certeza?"
+  cancelButtonText='Cancelar'
+  confirmButtonText='Confirmar'
+  [text]="text"
+  [showCancelButton]="true"
+  (confirm)="confirm()"
+  (cancel)="cancel()"
+  >
+</swal>

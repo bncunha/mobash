@@ -14,6 +14,7 @@ export class PropriedadeSkuService {
   loadingGetPropriedades = false;
   loadingSalvarProriedade = false;
   loadingEditarProriedade = false;
+  loadingDeletarProriedade = false;
 
   constructor(
     private http: HttpClient,
@@ -35,5 +36,10 @@ export class PropriedadeSkuService {
   editarPropriedade(model: PropriedadeSku): Observable<any> {
     this.loadingEditarProriedade = true;
     return this.api.editar('propriedades-sku/' + model.idPropriedadeSku , model, () => this.loadingEditarProriedade = false);
+  }
+
+  deletar(id: number, onSucces?, onError?): void {
+    this.loadingDeletarProriedade = true;
+    this.api.deletar('propriedades-sku/' + id, onSucces, onError, () => this.loadingDeletarProriedade = false);
   }
 }

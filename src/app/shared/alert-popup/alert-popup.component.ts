@@ -10,8 +10,11 @@ import { AlertPopupService } from './alert-popup.service';
 export class AlertPopupComponent implements OnInit {
   @ViewChild('sucessoAlert') sucessoAlert: SwalComponent;
   @ViewChild('erroAlert') erroAlert: SwalComponent;
+  @ViewChild('perguntaAlert') perguntaAlert: SwalComponent;
 
   text: string;
+  onConfirm: any;
+  onCancel: any;
 
   constructor(
     private alertPopupService: AlertPopupService
@@ -20,6 +23,7 @@ export class AlertPopupComponent implements OnInit {
   ngOnInit(): void {
     this.alertPopupService.notificarSucesso.subscribe(() => this.showSucesso());
     this.alertPopupService.notificarErro.subscribe((msg) => this.showErro(msg));
+    this.alertPopupService.notificarPergunta.subscribe(({msg, confirm, cancel}) => this.showPergunta(msg, confirm, cancel));
   }
 
   showSucesso() {
@@ -34,6 +38,27 @@ export class AlertPopupComponent implements OnInit {
     setTimeout(() => {
       this.erroAlert.fire();
     });
+  }
+
+  showPergunta(text, onConfirm?, onCancel?) {
+    this.text = text;
+    this.onConfirm = onConfirm;
+    this.onCancel = onCancel;
+    setTimeout(() => {
+      this.perguntaAlert.fire();
+    });
+  }
+
+  confirm() {
+    if (this.onConfirm) {
+      this.onConfirm();
+    }
+  }
+
+  cancel() {
+    if (this.onCancel) {
+      this.onCancel();
+    }
   }
 
 }

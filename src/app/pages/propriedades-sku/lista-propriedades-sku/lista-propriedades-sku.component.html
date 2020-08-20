@@ -4,6 +4,7 @@
     [data]="propriedadesSku"
     [canEdit]="true"
     (editar)="salvar($event?.idPropriedadeSKU)"
+    (deletar)="deletar($event?.idPropriedadeSKU)"
     (adicionar)="salvar()">
   </app-tabela>
 </app-card>

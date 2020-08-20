@@ -61,4 +61,10 @@ export class ListaPropriedadesSkuComponent implements OnInit {
     }
   }
 
+  deletar(id: number) {
+    this.propriedadeSkuService.deletar(id, () => {
+      this.buscarPropriedadesSku();
+    });
+  }
+
 }
