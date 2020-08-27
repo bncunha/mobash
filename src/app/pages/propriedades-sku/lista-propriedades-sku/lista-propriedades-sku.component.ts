@@ -30,6 +30,9 @@ export class ListaPropriedadesSkuComponent implements OnInit {
     name: 'Código',
     bindValue: 'codigoPropriedade',
     control: this.addForm.get('codigoPropriedade')
+  }, {
+    name: '',
+    customColum: 'addOpcao',
   }];
 
   constructor(private propriedadeSkuService: PropriedadeSkuService, private alert: AlertPopupService) { }

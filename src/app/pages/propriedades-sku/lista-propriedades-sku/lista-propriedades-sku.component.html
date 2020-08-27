@@ -6,5 +6,10 @@
     (editar)="salvar($event?.idPropriedadeSKU)"
     (deletar)="deletar($event?.idPropriedadeSKU)"
     (adicionar)="salvar()">
+
+    <ng-template appCustomColum="addOpcao" let-item>
+      <button class="small"> Gerenciar Opções </button>
+    </ng-template>    
+  
   </app-tabela>
 </app-card>

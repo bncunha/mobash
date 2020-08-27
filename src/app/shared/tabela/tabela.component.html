@@ -16,10 +16,19 @@
       </tr>
   
   
-      <tr *ngFor="let item of data; let i = index" [class.linha-edicao]="isEditandoLinha(i)" (click)="editarLinha(item, i)">
-        <td *ngFor="let col of cols; let iCol = index"> 
-          <ng-container *ngIf="!isEditandoLinha(i)"> 
-            {{ getColValue(item, col) }}
+      <tr *ngFor="let item of data; let i = index" [class.linha-edicao]="isEditandoLinha(i)">
+        <td *ngFor="let col of cols; let iCol = index" (click)="!col.customColum && editarLinha(item, i)"> 
+          <ng-container *ngIf="!isEditandoLinha(i)">
+            <ng-container *ngIf="col.customColum; else simpleValue" 
+              [ngTemplateOutlet]="getCustomColum(col.customColum)" 
+              [ngTemplateOutletContext]="{$implicit: item, index: i, col: col}">
+            </ng-container>
+
+            <ng-template #simpleValue>
+              {{ getColValue(item, col) }}
+            </ng-template>
+            
+            
             <app-button *ngIf="iCol == cols.length-1" 
               type="delete" 
               (click)="deletarClick(item); $event.stopPropagation()"

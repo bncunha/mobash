@@ -1,12 +1,14 @@
-import { Component, OnInit, Input, ContentChild, ViewChild, EventEmitter, Output, ViewChildren, QueryList } from '@angular/core';
+import { Component, OnInit, Input, ContentChild, ViewChild, EventEmitter, Output, ViewChildren, QueryList, ContentChildren, TemplateRef } from '@angular/core';
 import { FormGroup, AbstractControl } from '@angular/forms';
 import { ColunaEdicaoComponent } from './coluna-edicao/coluna-edicao.component';
+import { CustomColumDirective } from './custom-colum.directive';
 
 export type TableCol = {
   name: string;
-  bindValue: string;
+  bindValue?: string;
   type?: string;
   edit?: boolean;
+  customColum?: string;
   control?: AbstractControl;
 };
 
@@ -17,6 +19,8 @@ export type TableCol = {
 })
 export class TabelaComponent implements OnInit {
   @ViewChildren(ColunaEdicaoComponent) colunasEmEdicao: QueryList<ColunaEdicaoComponent>;
+  @ContentChildren(CustomColumDirective) customColuns: QueryList<CustomColumDirective>;
+
   @Output() adicionar = new EventEmitter();
   @Output() editar = new EventEmitter();
   @Output() deletar = new EventEmitter();
@@ -30,6 +34,9 @@ export class TabelaComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
+    setTimeout(() => {
+      console.log(this.customColuns.toArray());
+    }, 1000);
   }
 
   get estaVazio(): boolean {
@@ -76,5 +83,10 @@ export class TabelaComponent implements OnInit {
 
   isEditandoLinha(indiceLinha) {
     return this.indiceEdicao !== null && this.indiceEdicao === indiceLinha;
+  }
+
+  getCustomColum(colum: string) {
+    const finded = this.customColuns.find(c => c.appCustomColum === colum);
+    return finded && finded.template;
   }
 }

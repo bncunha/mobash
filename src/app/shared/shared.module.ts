@@ -9,6 +9,7 @@ import { LoadingComponent } from './loading/loading.component';
 import { ColunaEdicaoComponent } from './tabela/coluna-edicao/coluna-edicao.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ButtonComponent } from './button/button.component';
+import { CustomColumDirective } from './tabela/custom-colum.directive';
 
 
 @NgModule({
@@ -18,6 +19,7 @@ import { ButtonComponent } from './button/button.component';
     ButtonComponent,
     LoadingComponent,
     ColunaEdicaoComponent,
+    CustomColumDirective,
   ],
   imports: [
     CommonModule,
@@ -32,7 +34,8 @@ import { ButtonComponent } from './button/button.component';
     ButtonComponent,
     FormValidatorModule,
     AlertPopupModule,
-    LoadingComponent
+    LoadingComponent,
+    CustomColumDirective
   ]
 })
 export class SharedModule { }
