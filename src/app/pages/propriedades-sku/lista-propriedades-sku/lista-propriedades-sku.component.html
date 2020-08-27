@@ -8,8 +8,10 @@
     (adicionar)="salvar()">
 
     <ng-template appCustomColum="addOpcao" let-item>
-      <button class="small"> Gerenciar Opções </button>
+      <button class="small" (click)="dialogOpcoes.open()"> Gerenciar Opções </button>
     </ng-template>    
   
   </app-tabela>
 </app-card>
+
+<app-dialog #dialogOpcoes size="lg" titulo="Gerenciar opções"></app-dialog>

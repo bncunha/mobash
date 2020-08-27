@@ -10,6 +10,8 @@ import { ColunaEdicaoComponent } from './tabela/coluna-edicao/coluna-edicao.comp
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ButtonComponent } from './button/button.component';
 import { CustomColumDirective } from './tabela/custom-colum.directive';
+import { DialogComponent } from './dialog/dialog.component';
+import { MatDialogModule } from '@angular/material/dialog';
 
 
 @NgModule({
@@ -20,13 +22,15 @@ import { CustomColumDirective } from './tabela/custom-colum.directive';
     LoadingComponent,
     ColunaEdicaoComponent,
     CustomColumDirective,
+    DialogComponent,
   ],
   imports: [
     CommonModule,
     RouterModule,
     FormsModule,
     ReactiveFormsModule,
-    FormValidatorModule
+    FormValidatorModule,
+    MatDialogModule
   ],
   exports: [
     CardComponent,
@@ -35,7 +39,8 @@ import { CustomColumDirective } from './tabela/custom-colum.directive';
     FormValidatorModule,
     AlertPopupModule,
     LoadingComponent,
-    CustomColumDirective
+    CustomColumDirective,
+    DialogComponent
   ]
 })
 export class SharedModule { }

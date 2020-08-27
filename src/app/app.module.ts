@@ -7,6 +7,7 @@ import { SidebarModule } from './templates/sidebar/sidebar.module';
 import { AppRoutingModule } from './app-routing.module';
 import { AlertPopupModule } from './shared/alert-popup/alert-popup.module';
 import { SweetAlert2Module } from '@sweetalert2/ngx-sweetalert2';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { SweetAlert2Module } from '@sweetalert2/ngx-sweetalert2';
     SidebarModule,
     AppRoutingModule,
     AlertPopupModule,
-    SweetAlert2Module.forRoot()
+    SweetAlert2Module.forRoot(),
+    BrowserAnimationsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
