@@ -15,6 +15,7 @@ export class ListaPropriedadesSkuComponent implements OnInit {
   @ViewChild(TabelaComponent) tabela: TabelaComponent;
 
   propriedadesSku: any[];
+  propriedadeSelecionado: PropriedadeSku;
   page: number;
   total: number;
   addForm: FormGroup = new PropriedadeSku().criarFormulario();
@@ -54,7 +55,7 @@ export class ListaPropriedadesSkuComponent implements OnInit {
     const request = idPropriedadeSKU ? this.propriedadeSkuService.editarPropriedade : this.propriedadeSkuService.salvarPropriedade;
     if (this.addForm.valid) {
       const propriedadeSku = new PropriedadeSku().valoresFormulario(this.addForm);
-      propriedadeSku.idPropriedadeSku = idPropriedadeSKU;
+      propriedadeSku.idPropriedadeSKU = idPropriedadeSKU;
       request.bind(this.propriedadeSkuService)(propriedadeSku).subscribe(r => {
         this.buscarPropriedadesSku();
         this.tabela.cancelar();

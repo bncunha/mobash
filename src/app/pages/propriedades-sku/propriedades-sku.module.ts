@@ -5,6 +5,7 @@ import { PropriedadesSkuRoutingModule } from './propriedades-sku-routing.module'
 import { ListaPropriedadesSkuComponent } from './lista-propriedades-sku/lista-propriedades-sku.component';
 import { SharedModule } from 'src/app/shared/shared.module';
 import { FormularioPropriedadesSkuComponent } from './formulario-propriedades-sku/formulario-propriedades-sku.component';
+import { OpcoesCaracteristicasModule } from '../opcoes-caracteristicas/opcoes-caracteristicas.module';
 
 
 
@@ -13,6 +14,7 @@ import { FormularioPropriedadesSkuComponent } from './formulario-propriedades-sk
   imports: [
     EssentialsModule,
     PropriedadesSkuRoutingModule,
+    OpcoesCaracteristicasModule
   ]
 })
 export class PropriedadesSkuModule { }

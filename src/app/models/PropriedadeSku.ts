@@ -2,9 +2,9 @@ import { PersistenceModel } from './PersistenceModel.interface';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 
 export class PropriedadeSku extends PersistenceModel<PropriedadeSku> {
-  private nomePropriedade: string;
-  private codigoPropriedade: string;
-  idPropriedadeSku: number;
+  nomePropriedade: string;
+  codigoPropriedade: string;
+  idPropriedadeSKU: number;
 
   constructor() {
     super();

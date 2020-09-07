@@ -15,6 +15,13 @@ export class ApiService {
     private alert: AlertPopupService
   ) { }
 
+  listar(url: string, params?: any, onFinalize?) {
+    return this.http.get(`${environment.backend}/${url}`, {params}).pipe(
+      catchError(err => { this.alert.showError(err.error && err.error.message); return throwError(err); }),
+      finalize(() => onFinalize && onFinalize())
+    );
+  }
+
   salvar(url: string, data: any, onFinalize?) {
     return this.http.post(`${environment.backend}/${url}`, data).pipe(
       tap(() => this.alert.showSucesso()),
