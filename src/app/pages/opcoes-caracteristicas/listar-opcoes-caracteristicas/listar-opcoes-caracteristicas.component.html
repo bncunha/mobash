@@ -1,5 +1,8 @@
 <app-tabela 
   [cols]="cols" 
   [data]="opcoesCaracteriscicas"
-  [canEdit]="true">
+  [canEdit]="true"
+  (editar)="salvar($event?.idOpcaoPropriedadeSKU)"
+  (deletar)="deletar($event?.idOpcaoPropriedadeSKU)"
+  (adicionar)="salvar()">
 </app-tabela>

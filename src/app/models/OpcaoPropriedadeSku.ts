@@ -5,6 +5,7 @@ export class OpcaoPropriedadeSku extends PersistenceModel<OpcaoPropriedadeSku> {
   private codigoOpcao: string;
   private nomeOpcao: string;
   idOpcaoPropriedadeSKU: number;
+  idPropriedadeSKU: number;
 
   constructor() {
     super();
@@ -14,6 +15,7 @@ export class OpcaoPropriedadeSku extends PersistenceModel<OpcaoPropriedadeSku> {
     this.form = new FormBuilder().group({
       nomeOpcao: [model && model.nomeOpcao, [Validators.required]],
       codigoOpcao: [model && model.codigoOpcao, [Validators.minLength(2), Validators.maxLength(5)]],
+      idPropriedadeSKU: [model && model.idPropriedadeSKU, Validators.required]
     });
     return this.form;
   }

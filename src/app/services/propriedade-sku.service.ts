@@ -35,7 +35,7 @@ export class PropriedadeSkuService {
 
   editarPropriedade(model: PropriedadeSku): Observable<any> {
     this.loadingEditarProriedade = true;
-    return this.api.editar('propriedades-sku/' + model.idPropriedadeSku , model, () => this.loadingEditarProriedade = false);
+    return this.api.editar('propriedades-sku/' + model.idPropriedadeSKU , model, () => this.loadingEditarProriedade = false);
   }
 
   deletar(id: number, onSucces?, onError?): void {
