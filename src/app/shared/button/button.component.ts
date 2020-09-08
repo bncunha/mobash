@@ -11,6 +11,7 @@ export class ButtonComponent implements OnInit {
   @Input() link: string;
   @Input() loading: boolean;
   @Input() small: boolean;
+  @Input() showTexto = true;
 
   constructor() { }
 
@@ -18,6 +19,7 @@ export class ButtonComponent implements OnInit {
   }
 
   getTexto() {
+    if (!this.showTexto) { return; }
     switch (this.type) {
       case 'add': return 'Adicionar';
       case 'edit': return 'Salvar';

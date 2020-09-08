@@ -21,7 +21,7 @@ export class FormValidatorDirective implements OnInit, DoCheck {
 
   ngDoCheck() {
     if (this.control) {
-      if (this.control.touched && this.control.invalid) {
+      if (this.control.touched && this.control.dirty && this.control.invalid) {
         this.criarMensagemComponente(this.getMensagemDeErro());
       } else {
         this.removerMensagemComponente();

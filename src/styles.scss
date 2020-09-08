@@ -31,13 +31,13 @@ form label {
   height: 3rem;
 }
 
-:not(form).ng-invalid.ng-touched {
+:not(form).ng-invalid.ng-touched.ng-dirty {
   border: 1px solid;
   color: red;
   border-color: red;
 }
 
-:not(form).ng-valid.ng-touched {
+:not(form).ng-valid.ng-touched.ng-dirty  {
   border: 1px solid;
   border-color: green;
 }

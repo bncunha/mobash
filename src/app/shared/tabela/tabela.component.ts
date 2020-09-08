@@ -48,6 +48,7 @@ export class TabelaComponent implements OnInit {
   }
 
   botaoAddClicado(): void {
+    this.cancelar();
     this.showAddRow = true;
     if (this.colunasEmEdicao) {
       setTimeout(() => {
@@ -73,6 +74,7 @@ export class TabelaComponent implements OnInit {
   }
 
   editarLinha(item: any, index: number): void {
+    this.cancelar();
     this.indiceEdicao = index;
     this.cols.forEach(col => {
       if (col.control) {
